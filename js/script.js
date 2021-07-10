@@ -11,6 +11,23 @@ Project 4 - Random Quote Generator in JavaScript
  * `quotes` array 
 ***/
 
+let quotes = [
+  {
+
+  },
+  {
+
+  },
+  {
+
+  },
+  {
+
+  },
+  {
+
+  }
+]
 
 
 /***
