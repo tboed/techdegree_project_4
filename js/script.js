@@ -13,7 +13,8 @@ Project 4 - Random Quote Generator in JavaScript
 	quote: "Hope for the best but prepare for the worst.",
 	source: "Benjamin Disraeli",
 	citation: "The Wondrous Tale of Alroy: The rise of Iskander",
-	year: 1833
+	year: 1833,
+	tags: "Books"
 }, {
 	quote: "Don't count the days. Make the days count.",
 	source: "Muhammad Ali"
@@ -31,8 +32,15 @@ Project 4 - Random Quote Generator in JavaScript
 	source: "Gregory House",
 	citation: "House",
 	year: 2010,
-	tags: "Humor"
+	tags: "TV Series"
 } ]
+/***
+ * `autoRefresh Function`
+ * function to auto refresh page at regular intervals
+ ***/
+function autoRefresh() {
+	setInterval(function(){ printQuote();}, 10000);
+}
 
 /***
  * `randomBgColor` function
@@ -43,7 +51,7 @@ function randomBgColor() {
 	let green = Math.floor( Math.random() * 256 );
 	let blue = Math.floor( Math.random() * 256 );
 	let randomBg = "rgb(" + red + ", " + green + ", " + blue + ")";
-	document.body.style.background = randomBg;
+	document.body.style.background = randomBg; //Only runs when refreshed?
 }
 
 /***
@@ -77,7 +85,7 @@ function printQuote() {
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
  ***/
-document.getElementById( 'load-quote' ).addEventListener( "click", printQuote, randomBgColor, false );
+document.getElementById( 'load-quote' ).addEventListener( "click", printQuote, false );
 
 /***
  * Check point 11 of Project Instructions
