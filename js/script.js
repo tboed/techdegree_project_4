@@ -36,24 +36,25 @@ Project 4 - Random Quote Generator in JavaScript
 } ]
 /***
  * `autoRefresh Function`
- * function to auto refresh page at regular intervals
+ * function to auto refresh page and print 
+ * random quotes at regular intervals of 10s
  ***/
 function autoRefresh() {
-	setInterval(function(){ printQuote();}, 10000);
+	setInterval( function() {
+		printQuote();
+	}, 10000 );
 }
-
 /***
  * `randomBgColor` function
- * function to return a random background color with each quote
+ * function to return a random background color with each quote refresh
  ***/
 function randomBgColor() {
 	let red = Math.floor( Math.random() * 256 );
 	let green = Math.floor( Math.random() * 256 );
 	let blue = Math.floor( Math.random() * 256 );
 	let randomBg = "rgb(" + red + ", " + green + ", " + blue + ")";
-	document.body.style.background = randomBg; //Only runs when refreshed?
+	document.body.style.background = randomBg;
 }
-
 /***
  * `getRandomQuote` function
  * function to return a randomized quote from quotes array
@@ -75,19 +76,16 @@ function printQuote() {
 	if ( print.year !== undefined ) {
 		printed = printed + `<span class="year">${print.year}</span>`;
 	}
-	if ( print.tags !== undefined ){
+	if ( print.tags !== undefined ) {
 		printed = printed + `<span class="tags">${print.tags}</span>`
 	}
 	printed = printed + `</p>`
 	document.getElementById( 'quote-box' ).innerHTML = printed;
+	randomBgColor();
 }
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
  ***/
 document.getElementById( 'load-quote' ).addEventListener( "click", printQuote, false );
-
-/***
- * Check point 11 of Project Instructions
- * Add extra credit steps
- ***/
+autoRefresh();
